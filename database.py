@@ -17,6 +17,9 @@ class Connection:
         self.rooms = self.db['rooms']
         self.users = self.db['users']
 
+        self.create_user('Artemii', 'artemii')
+        self.create_room('LabSession9')
+
     # Message functions
     def get_messages(self, room, max=50):
         """Retrieves the messages from a chatroom."""
