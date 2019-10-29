@@ -11,7 +11,8 @@ app.secret_key = b'JPtUKpetQiyfzGpBS5SM'  # yeah, i don't care. hack me
 # Establish connection to the database
 from database import Connection
 
-db = Connection(app, 'db1', 27017)
+# See database.py file (line #13)
+db = Connection(app, 'db1;db2;db3', 27017)
 
 # Initialize chatlogger
 from chatlog import Logger
