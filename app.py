@@ -9,7 +9,9 @@ app.secret_key = b'JPtUKpetQiyfzGpBS5SM' # yeah, i don't care. hack me
 
 # Establish connection to the database
 from database import Connection
-db = Connection(app, 'localhost', 27017)
+db = Connection(app, 'db2', 27017)
+db.create_user('admin', 'admin')
+db.create_room('DB LabSession')
 
 # Initialize chatlogger
 from chatlog import Logger

@@ -10,7 +10,7 @@ class Connection:
 
     def __init__(self, app, host, port):
         self.app = app
-        self.client = pymongo.MongoClient(host, port)
+        self.client = pymongo.MongoClient(host, port, replicaset='rs0')
     
         self.db = self.client['chat-app']
         self.messages = self.db['messages']
