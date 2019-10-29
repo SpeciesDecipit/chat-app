@@ -10,8 +10,6 @@ app.secret_key = b'JPtUKpetQiyfzGpBS5SM' # yeah, i don't care. hack me
 # Establish connection to the database
 from database import Connection
 db = Connection(app, 'db1', 27017)
-db.create_user('admin', 'admin')
-db.create_room('DB LabSession')
 
 # Initialize chatlogger
 from chatlog import Logger
@@ -22,6 +20,8 @@ logger = Logger('chat.log')
 # Index, shows the chatrooms
 @app.route('/')
 def index():
+    db.create_user('admin', 'admin')
+    db.create_room('DB LabSession')
 
     if 'username' not in session:
         return redirect(url_for('login'))
